@@ -6,8 +6,8 @@
 <title>Flaggenquiz – Alle Flaggen der Welt</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 <style>
-:root{--bg1:#0b0d1f;--card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.11);--line:rgba(255,255,255,.12);--text:#f3f4fc;--muted:#a3a9c9;--accent:#8b7bff;--accent2:#3dd6f5;--ok:#2fd27f;--bad:#ff5a6a}
-@media (prefers-color-scheme:light){:root{--bg1:#f1f3ff;--card:rgba(255,255,255,.7);--card2:rgba(255,255,255,.96);--line:rgba(60,60,130,.14);--text:#171a33;--muted:#5b6188;--accent:#5b46f0;--accent2:#0a8fd1}}
+:root{--bg1:#0b0d1f;--card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.11);--line:rgba(255,255,255,.12);--text:#f3f4fc;--muted:#a3a9c9;--accent:#8b7bff;--accent2:#3dd6f5;--ok:#2fd27f;--bad:#ff5a6a;--ocean:#132d41;--land:rgba(243,244,252,.2);--landln:rgba(243,244,252,.45);--dotc:rgba(243,244,252,.55);--acc28:rgba(139,123,255,.28);--acc45:rgba(139,123,255,.45)}
+@media (prefers-color-scheme:light){:root{--bg1:#f1f3ff;--card:rgba(255,255,255,.7);--card2:rgba(255,255,255,.96);--line:rgba(60,60,130,.14);--text:#171a33;--muted:#5b6188;--accent:#5b46f0;--accent2:#0a8fd1;--ocean:#cce3f8;--land:rgba(23,26,51,.2);--landln:rgba(23,26,51,.45);--dotc:rgba(23,26,51,.55);--acc28:rgba(91,70,240,.28);--acc45:rgba(91,70,240,.45)}}
 *{box-sizing:border-box;margin:0}
 body{min-height:100vh;min-height:100dvh;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:var(--bg1);display:flex;padding:16px;overflow-x:hidden}
 body::before,body::after{content:"";position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(100px);z-index:-1;pointer-events:none}
@@ -28,11 +28,11 @@ h1{font-size:2.3rem;font-weight:800;letter-spacing:-.03em;background:linear-grad
 .tile .ic{font-size:1.8rem;font-family:"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif}
 .tile b{font-size:.9rem}
 .tile small{color:var(--muted);font-size:.74rem}
-.tile.sel{border-color:var(--accent);background:var(--card2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent)}
+.tile.sel{border-color:var(--accent);background:var(--card2);box-shadow:0 0 0 4px var(--acc28)}
 .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px;gap:4px}
 .seg button{font:inherit;font-size:.9rem;font-weight:600;padding:12px 6px;border:0;border-radius:12px;background:transparent;color:var(--muted);cursor:pointer;transition:.2s}
 .seg button.sel{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
-.go{border:0;font:inherit;font-weight:700;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:16px 40px;border-radius:18px;cursor:pointer;margin-top:24px;font-size:1.05rem;transition:.2s;box-shadow:0 10px 28px color-mix(in srgb,var(--accent) 45%,transparent)}
+.go{border:0;font:inherit;font-weight:700;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:16px 40px;border-radius:18px;cursor:pointer;margin-top:24px;font-size:1.05rem;transition:.2s;box-shadow:0 10px 28px var(--acc45)}
 .go:hover{transform:translateY(-2px)}
 .ghost{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none}
 .best{color:var(--muted);margin-top:16px;font-size:.9rem}
@@ -81,17 +81,17 @@ h1{font-size:2.3rem;font-weight:800;letter-spacing:-.03em;background:linear-grad
 .mflag .emo{font-size:3.5rem}
 .mres{color:var(--muted);font-size:.9rem;margin-top:4px;line-height:1.5}
 .mres b{color:var(--text)}
-.mapbox{position:relative;aspect-ratio:360/154;border-radius:18px;overflow:hidden;background:color-mix(in srgb,var(--accent2) 16%,var(--bg1));border:1px solid var(--line);user-select:none;-webkit-user-select:none}
+.mapbox{position:relative;aspect-ratio:360/154;border-radius:18px;overflow:hidden;background:var(--ocean);border:1px solid var(--line);user-select:none;-webkit-user-select:none}
 .mapbox svg{width:100%;height:100%;display:block;touch-action:none;cursor:crosshair}
-.land path{fill:color-mix(in srgb,var(--text) 20%,transparent);stroke:color-mix(in srgb,var(--text) 45%,transparent);stroke-width:.6px;vector-effect:non-scaling-stroke;fill-rule:evenodd}
+.land path{fill:var(--land);stroke:var(--landln);stroke-width:.6px;vector-effect:non-scaling-stroke;fill-rule:evenodd}
 .land path.t{fill:var(--ok);stroke:#fff}
-#ov .dot{fill:color-mix(in srgb,var(--text) 55%,transparent)}
+#ov .dot{fill:var(--dotc)}
 #ov .dot.t{fill:var(--ok)}
 #ov .gm,#ov .tm{stroke:#fff;stroke-width:2px;vector-effect:non-scaling-stroke}
 #ov .gm{fill:var(--accent)}
 #ov .tm{fill:var(--ok)}
 #ov .ln{stroke:var(--text);stroke-width:2px;stroke-dasharray:6 5;vector-effect:non-scaling-stroke;opacity:.8}
-.land path.nb{fill:color-mix(in srgb,var(--accent) 45%,transparent);stroke:#fff}
+.land path.nb{fill:var(--acc45);stroke:#fff}
 .land path.w{fill:var(--bad);stroke:#fff}
 #ov .wl{fill:var(--bad);font-weight:800;paint-order:stroke;stroke:#fff;stroke-linejoin:round;pointer-events:none}
 #ov .nl{fill:var(--text);font-weight:700;paint-order:stroke;stroke:var(--bg1);stroke-linejoin:round;pointer-events:none}
